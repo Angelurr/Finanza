@@ -4,13 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sistema Profesional de Ventas</title>
-
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,341 +14,240 @@ body {
     padding: 20px;
 }
 
-.header {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-}
-
-.header h1 {
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin-bottom: 10px;
-}
-
-.header p {
-    font-size: 1.1em;
-    opacity: 0.9;
-}
+.header { text-align: center; color: white; margin-bottom: 30px; }
+.header h1 { font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; }
+.header p { font-size: 1.1em; opacity: 0.9; }
 
 .menu {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    display: flex; gap: 15px; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 30px;
 }
-
 .menu button {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 12px;
-    background: white;
-    color: #667eea;
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
+    padding: 15px 25px; border: none; border-radius: 12px;
+    background: white; color: #667eea; font-weight: bold;
+    font-size: 1em; cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; align-items: center; gap: 8px;
 }
-
-.menu button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.menu button.active {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-}
+.menu button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+.menu button.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
 .container {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
+    background: white; border-radius: 20px; padding: 30px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    display: none;
-    animation: fadeIn 0.3s ease;
+    display: none; animation: fadeIn 0.3s ease;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.active {
-    display: block;
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.container.active { display: block; }
 
 .section-title {
-    color: #667eea;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #667eea;
-    font-size: 1.8em;
+    color: #667eea; margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 3px solid #667eea; font-size: 1.8em;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-    font-weight: 600;
-}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; color: #555; font-weight: 600; }
 
 input, select {
-    padding: 12px;
-    border-radius: 8px;
-    border: 2px solid #e0e0e0;
-    width: 100%;
-    font-size: 1em;
-    transition: border 0.3s ease;
+    padding: 12px; border-radius: 8px; border: 2px solid #e0e0e0;
+    width: 100%; font-size: 1em; transition: border 0.3s ease;
+    text-transform: uppercase;
 }
+input::placeholder { text-transform: none; }
+input:focus, select:focus { outline: none; border-color: #667eea; }
+select { text-transform: uppercase; }
+select option { text-transform: uppercase; }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-button {
-    cursor: pointer;
-    font-size: 1em;
-}
+button { cursor: pointer; font-size: 1em; }
 
 .btn-primary {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px;
+    color: white; padding: 12px 25px; border: none;
+    border-radius: 8px; font-weight: bold; margin-top: 10px;
     transition: all 0.3s ease;
 }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,0.4); }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
+.btn-danger { background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 6px; }
+.btn-danger:hover { background: #c0392b; }
 
-.btn-danger {
-    background: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-}
+.btn-save { background: #27ae60; color: white; border: none; padding: 6px 12px; border-radius: 6px; }
+.btn-save:hover { background: #229954; }
 
-.btn-danger:hover {
-    background: #c0392b;
-}
+.btn-edit { background: #f39c12; color: white; border: none; padding: 6px 12px; border-radius: 6px; }
+.btn-edit:hover { background: #d68910; }
 
-.btn-save {
-    background: #27ae60;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+.btn-secondary {
+    background: #95a5a6; color: white; padding: 10px 20px;
+    border: none; border-radius: 8px; font-weight: bold;
+    margin-top: 10px; transition: all 0.3s ease;
 }
-
-.btn-save:hover {
-    background: #229954;
-}
+.btn-secondary:hover { background: #7f8c8d; }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 100%; border-collapse: collapse; margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;
 }
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
-}
-
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #e0e0e0; }
 th {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9em;
+    color: white; font-weight: bold; text-transform: uppercase; font-size: 0.9em;
 }
-
-tr:hover {
-    background: #f5f5f5;
-}
-
-.total {
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: right;
-    font-size: 1.3em;
-    color: #667eea;
-    padding: 15px;
-    background: #f0f4ff;
-    border-radius: 8px;
-}
+tr:hover { background: #f5f5f5; }
 
 .totales-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px; margin-top: 20px;
 }
+.total-card { padding: 15px; border-radius: 8px; text-align: center; }
+.total-card.ventas-totales { background: #e8f5e9; border-left: 4px solid #27ae60; }
+.total-card.ganancias-totales { background: #f0f4ff; border-left: 4px solid #667eea; }
+.total-card .label { font-size: 0.9em; color: #555; margin-bottom: 5px; }
+.total-card .value { font-size: 1.8em; font-weight: bold; }
+.total-card.ventas-totales .value { color: #27ae60; }
+.total-card.ganancias-totales .value { color: #667eea; }
 
-.total-card {
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.total-card.ventas-totales {
-    background: #e8f5e9;
-    border-left: 4px solid #27ae60;
-}
-
-.total-card.ganancias-totales {
-    background: #f0f4ff;
-    border-left: 4px solid #667eea;
-}
-
-.total-card .label {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.total-card .value {
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.total-card.ventas-totales .value {
-    color: #27ae60;
-}
-
-.total-card.ganancias-totales .value {
-    color: #667eea;
-}
-
-/* Reportes */
 .reports-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; margin-top: 20px;
 }
-
 .report-card {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    color: white; padding: 25px; border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;
 }
+.report-card:hover { transform: translateY(-5px); }
+.report-card h3 { font-size: 1em; margin-bottom: 10px; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+.report-card .value { font-size: 2.5em; font-weight: bold; margin: 10px 0; }
+.report-card .subtitle { font-size: 0.9em; opacity: 0.8; }
 
-.report-card:hover {
-    transform: translateY(-5px);
-}
-
-.report-card h3 {
-    font-size: 1em;
-    margin-bottom: 10px;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.report-card .value {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.report-card .subtitle {
-    font-size: 0.9em;
-    opacity: 0.8;
-}
-
-.filter-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
+.filter-buttons { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
 .filter-btn {
-    padding: 10px 20px;
-    border: 2px solid #667eea;
+    padding: 10px 20px; border: 2px solid #667eea;
+    background: white; color: #667eea; border-radius: 8px;
+    font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+}
+.filter-btn.active { background: #667eea; color: white; }
+.filter-btn:hover { transform: translateY(-2px); }
+
+.empty-state { text-align: center; padding: 40px; color: #999; }
+.empty-state i { font-size: 3em; margin-bottom: 15px; display: block; }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+    z-index: 1000; justify-content: center; align-items: center;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+    background: white; border-radius: 20px; padding: 30px;
+    width: 90%; max-width: 600px; max-height: 90vh;
+    overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s ease;
+}
+.modal h2 { color: #667eea; margin-bottom: 20px; font-size: 1.5em; }
+.modal-footer { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+
+/* ===== MULTI-PRODUCTO en VENTA ===== */
+.productos-venta-lista { margin: 15px 0; display: flex; flex-direction: column; gap: 12px; }
+
+.producto-venta-item {
     background: white;
-    color: #667eea;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border-radius: 14px;
+    padding: 18px 18px 14px 18px;
+    border: 2px solid #e0e8ff;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+    position: relative;
+    transition: box-shadow 0.2s;
 }
+.producto-venta-item:hover { box-shadow: 0 4px 20px rgba(102,126,234,0.18); }
 
-.filter-btn.active {
-    background: #667eea;
-    color: white;
+.producto-item-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8edff;
 }
+.producto-item-numero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; border-radius: 20px; padding: 4px 14px;
+    font-size: 0.82em; font-weight: 700; letter-spacing: 0.5px;
+}
+.remove-item {
+    background: #ffeaea; color: #e74c3c; border: 1.5px solid #f5c6c6;
+    border-radius: 8px; width: 32px; height: 32px;
+    font-size: 1em; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; transition: all 0.2s;
+    font-weight: bold;
+}
+.remove-item:hover { background: #e74c3c; color: white; border-color: #e74c3c; }
 
-.filter-btn:hover {
-    transform: translateY(-2px);
-}
+.producto-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; align-items: end; }
 
-.empty-state {
-    text-align: center;
-    padding: 40px;
-    color: #999;
+.producto-subtotal-bar {
+    margin-top: 12px; padding: 10px 14px;
+    background: linear-gradient(90deg, #f0f4ff, #f8f0ff);
+    border-radius: 8px; display: flex; gap: 20px; align-items: center;
+    font-size: 0.88em;
 }
+.subtotal-item { display: flex; flex-direction: column; gap: 1px; }
+.subtotal-item .s-label { color: #999; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.5px; }
+.subtotal-item .s-value { font-weight: 700; font-size: 1em; }
+.subtotal-item .s-value.ventas-color { color: #667eea; }
+.subtotal-item .s-value.ganancia-color { color: #27ae60; }
 
-.empty-state i {
-    font-size: 3em;
-    margin-bottom: 15px;
-    display: block;
+.add-producto-btn {
+    background: white; color: #667eea;
+    border: 2px dashed #b3c2f7;
+    padding: 14px; border-radius: 12px; width: 100%; font-weight: 700;
+    font-size: 0.95em; cursor: pointer; transition: all 0.25s ease;
+    letter-spacing: 0.3px;
 }
+.add-producto-btn:hover { background: #667eea; color: white; border-color: #667eea; border-style: solid; }
+
+/* ===== LISTA PRODUCTOS EN TABLA VENTAS ===== */
+.venta-tag-list { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.venta-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #f0f4ff; border-radius: 6px; padding: 3px 9px;
+    font-size: 0.8em; color: #444; white-space: nowrap;
+}
+.venta-tag .tag-nombre { font-weight: 600; color: #667eea; }
+.venta-tag .tag-cant { background: #667eea; color: white; border-radius: 4px; padding: 1px 5px; font-size: 0.85em; font-weight: 700; }
+
+/* ===== MESES ===== */
+.meses-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px; margin-top: 20px;
+}
+.mes-card {
+    background: white; border-radius: 12px; padding: 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 4px solid #667eea;
+    transition: transform 0.2s;
+}
+.mes-card:hover { transform: translateY(-3px); }
+.mes-card h4 { color: #667eea; font-size: 1em; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.mes-stat { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9em; }
+.mes-stat .ms-label { color: #777; }
+.mes-stat .ms-ventas { color: #27ae60; font-weight: bold; }
+.mes-stat .ms-ganancia { color: #667eea; font-weight: bold; }
+.mes-transacciones { font-size: 0.8em; color: #aaa; margin-top: 8px; }
+
+
 
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 1.8em;
-    }
-    
-    .menu {
-        gap: 10px;
-    }
-    
-    .menu button {
-        padding: 12px 15px;
-        font-size: 0.9em;
-    }
-    
-    .container {
-        padding: 20px;
-    }
-    
-    table {
-        font-size: 0.9em;
-    }
-    
-    .totales-container {
-        grid-template-columns: 1fr;
-    }
+    .header h1 { font-size: 1.8em; }
+    .menu { gap: 10px; }
+    .menu button { padding: 12px 15px; font-size: 0.9em; }
+    .container { padding: 20px; }
+    table { font-size: 0.85em; }
+    .totales-container { grid-template-columns: 1fr; }
+    .producto-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
-
 <body>
 
 <div class="header">
@@ -362,21 +256,12 @@ tr:hover {
 </div>
 
 <div class="menu">
-    <button onclick="cambiarSeccion('stock', this)" class="active">
-        <span>📦</span> STOCK
-    </button>
-    <button onclick="cambiarSeccion('ventas', this)">
-        <span>💰</span> VENTAS
-    </button>
-    <button onclick="cambiarSeccion('clientes', this)">
-        <span>👥</span> CLIENTES
-    </button>
-    <button onclick="cambiarSeccion('reportes', this)">
-        <span>📈</span> REPORTES
-    </button>
-    <button onclick="cambiarSeccion('exportar', this)">
-        <span>📥</span> EXPORTAR
-    </button>
+    <button onclick="cambiarSeccion('stock', this)" class="active">📦 STOCK</button>
+    <button onclick="cambiarSeccion('ventas', this)">💰 VENTAS</button>
+    <button onclick="cambiarSeccion('clientes', this)">👥 CLIENTES</button>
+    <button onclick="cambiarSeccion('reportes', this)">📈 REPORTES</button>
+    <button onclick="cambiarSeccion('meses', this)">📅 POR MESES</button>
+    <button onclick="cambiarSeccion('exportar', this)">📥 EXPORTAR</button>
 </div>
 
 <!-- STOCK -->
@@ -385,30 +270,21 @@ tr:hover {
 
     <div class="form-group">
         <label>Nombre del Producto</label>
-        <input id="stockProducto" placeholder="Ej: Laptop HP">
+        <input id="stockProducto" placeholder="Ej: Laptop HP" oninput="this.value=this.value.toUpperCase()">
     </div>
-
     <div class="form-group">
         <label>Cantidad</label>
-        <input id="stockCantidad" type="number" placeholder="Ej: 10">
+        <input id="stockCantidad" type="number" placeholder="Ej: 10" style="text-transform:none">
     </div>
-
     <div class="form-group">
-        <label>Costo Unitario</label>
-        <input id="stockCosto" type="number" step="0.01" placeholder="Ej: 500.00">
+        <label>Costo Unitario ($)</label>
+        <input id="stockCosto" type="number" step="0.01" placeholder="Ej: 500.00" style="text-transform:none">
     </div>
-
     <button class="btn-primary" onclick="agregarStock()">➕ Agregar Producto</button>
 
     <table>
         <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Costo</th>
-                <th>Guardar</th>
-                <th>Eliminar</th>
-            </tr>
+            <tr><th>Producto</th><th>Cantidad</th><th>Costo</th><th>Editar</th><th>Eliminar</th></tr>
         </thead>
         <tbody id="tablaStock"></tbody>
     </table>
@@ -420,37 +296,21 @@ tr:hover {
 
     <div class="form-group">
         <label>Cliente</label>
-        <input id="cliente" placeholder="Nombre del cliente">
+        <input id="cliente" placeholder="Nombre del cliente" oninput="this.value=this.value.toUpperCase()">
     </div>
 
-    <div class="form-group">
-        <label>Producto</label>
-        <select id="ventaProducto"></select>
-    </div>
+    <div class="productos-venta-lista" id="productosVentaLista"></div>
 
-    <div class="form-group">
-        <label>Cantidad</label>
-        <input id="ventaCantidad" type="number" placeholder="Cantidad a vender">
-    </div>
+    <button class="add-producto-btn" onclick="agregarLineaProducto()">➕ Agregar Producto a la Venta</button>
 
-    <div class="form-group">
-        <label>Precio de Venta</label>
-        <input id="precioVenta" type="number" step="0.01" placeholder="Precio por unidad">
+    <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+        <button class="btn-primary" onclick="registrarVenta()">✅ Registrar Venta</button>
+        <button class="btn-secondary" onclick="limpiarFormVenta()">🔄 Limpiar</button>
     </div>
-
-    <button class="btn-primary" onclick="agregarVenta()">✅ Registrar Venta</button>
 
     <table>
         <thead>
-            <tr>
-                <th>Cliente</th>
-                <th>Producto</th>
-                <th>Cant.</th>
-                <th>Total</th>
-                <th>Ganancia</th>
-                <th>Fecha</th>
-                <th>Eliminar</th>
-            </tr>
+            <tr><th>Cliente</th><th>Productos</th><th>Total</th><th>Ganancia</th><th>Fecha</th><th>Editar</th><th>Eliminar</th></tr>
         </thead>
         <tbody id="tablaVentas"></tbody>
     </table>
@@ -470,14 +330,9 @@ tr:hover {
 <!-- CLIENTES -->
 <div id="clientes" class="container">
     <h2 class="section-title">👥 Resumen de Clientes</h2>
-
     <table>
         <thead>
-            <tr>
-                <th>Cliente</th>
-                <th>Productos Comprados</th>
-                <th>Total Gastado</th>
-            </tr>
+            <tr><th>Cliente</th><th>Productos Comprados</th><th>Total Gastado</th></tr>
         </thead>
         <tbody id="tablaClientes"></tbody>
     </table>
@@ -501,25 +356,21 @@ tr:hover {
             <div class="value" id="reportVentas">0</div>
             <div class="subtitle">Transacciones realizadas</div>
         </div>
-
         <div class="report-card">
             <h3>💵 Total Vendido</h3>
             <div class="value" id="reportTotalVendido">$0</div>
             <div class="subtitle">Ingresos totales</div>
         </div>
-
         <div class="report-card">
             <h3>📈 Ganancias</h3>
             <div class="value" id="reportGanancias">$0</div>
             <div class="subtitle">Utilidad generada</div>
         </div>
-
         <div class="report-card">
             <h3>📦 Productos Vendidos</h3>
             <div class="value" id="reportProductos">0</div>
             <div class="subtitle">Unidades vendidas</div>
         </div>
-
         <div class="report-card">
             <h3>👥 Clientes Atendidos</h3>
             <div class="value" id="reportClientes">0</div>
@@ -527,72 +378,75 @@ tr:hover {
         </div>
     </div>
 
-    <h3 style="margin-top: 40px; color: #667eea; margin-bottom: 15px;">🔥 Top Productos Vendidos</h3>
+    <h3 style="margin-top:40px;color:#667eea;margin-bottom:15px;">🔥 Top Productos Vendidos</h3>
     <table>
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad Vendida</th>
-                <th>Ingresos</th>
-            </tr>
-        </thead>
+        <thead><tr><th>Producto</th><th>Cantidad Vendida</th><th>Ingresos</th></tr></thead>
         <tbody id="tablaTopProductos"></tbody>
     </table>
 
-    <h3 style="margin-top: 40px; color: #667eea; margin-bottom: 15px;">⭐ Top Clientes</h3>
+    <h3 style="margin-top:40px;color:#667eea;margin-bottom:15px;">⭐ Top Clientes</h3>
     <table>
-        <thead>
-            <tr>
-                <th>Cliente</th>
-                <th>Compras</th>
-                <th>Total Gastado</th>
-            </tr>
-        </thead>
+        <thead><tr><th>Cliente</th><th>Compras</th><th>Total Gastado</th></tr></thead>
         <tbody id="tablaTopClientes"></tbody>
     </table>
+</div>
+
+<!-- POR MESES -->
+<div id="meses" class="container">
+    <h2 class="section-title">📅 Resumen por Meses</h2>
+    <div style="margin-bottom:15px;">
+        <label style="font-weight:600;color:#555;">Año:</label>
+        <select id="añoSelector" onchange="actualizarMeses()" style="width:auto;display:inline-block;margin-left:10px;text-transform:none;">
+        </select>
+    </div>
+    <div class="meses-grid" id="mesesGrid"></div>
+
+    <h3 style="margin-top:30px;color:#667eea;margin-bottom:15px;">📊 Resumen del Año</h3>
+    <div class="totales-container">
+        <div class="total-card ventas-totales">
+            <div class="label">💵 Total Ventas del Año</div>
+            <div class="value">$<span id="totalAnoVentas">0.00</span></div>
+        </div>
+        <div class="total-card ganancias-totales">
+            <div class="label">📈 Total Ganancias del Año</div>
+            <div class="value">$<span id="totalAnoGanancias">0.00</span></div>
+        </div>
+    </div>
 </div>
 
 <!-- EXPORTAR -->
 <div id="exportar" class="container">
     <h2 class="section-title">📥 Exportar Respaldos</h2>
-    
-    <p style="color: #666; margin-bottom: 30px;">
-        Descarga tus datos en formato Excel para tener respaldos seguros de tu información.
-    </p>
-
+    <p style="color:#666;margin-bottom:30px;">Descarga tus datos en formato Excel para tener respaldos seguros.</p>
     <div class="reports-grid">
-        <div class="report-card" style="cursor: pointer;" onclick="exportarInventario()">
+        <div class="report-card" style="cursor:pointer;" onclick="exportarInventario()">
             <h3>📦 INVENTARIO</h3>
-            <div class="value" style="font-size: 1.5em;">📊</div>
+            <div class="value" style="font-size:1.5em;">📊</div>
             <div class="subtitle">Stock completo de productos</div>
-            <button class="btn-primary" style="margin-top: 15px; width: 100%;">Descargar Excel</button>
+            <button class="btn-primary" style="margin-top:15px;width:100%;">Descargar Excel</button>
         </div>
-
-        <div class="report-card" style="cursor: pointer;" onclick="exportarVentas()">
+        <div class="report-card" style="cursor:pointer;" onclick="exportarVentas()">
             <h3>💰 VENTAS</h3>
-            <div class="value" style="font-size: 1.5em;">📊</div>
+            <div class="value" style="font-size:1.5em;">📊</div>
             <div class="subtitle">Historial completo de ventas</div>
-            <button class="btn-primary" style="margin-top: 15px; width: 100%;">Descargar Excel</button>
+            <button class="btn-primary" style="margin-top:15px;width:100%;">Descargar Excel</button>
         </div>
-
-        <div class="report-card" style="cursor: pointer;" onclick="exportarClientes()">
+        <div class="report-card" style="cursor:pointer;" onclick="exportarClientes()">
             <h3>👥 CLIENTES</h3>
-            <div class="value" style="font-size: 1.5em;">📊</div>
+            <div class="value" style="font-size:1.5em;">📊</div>
             <div class="subtitle">Resumen de clientes</div>
-            <button class="btn-primary" style="margin-top: 15px; width: 100%;">Descargar Excel</button>
+            <button class="btn-primary" style="margin-top:15px;width:100%;">Descargar Excel</button>
         </div>
-
-        <div class="report-card" style="cursor: pointer;" onclick="exportarCompleto()">
+        <div class="report-card" style="cursor:pointer;" onclick="exportarCompleto()">
             <h3>🗂️ RESPALDO COMPLETO</h3>
-            <div class="value" style="font-size: 1.5em;">📊</div>
+            <div class="value" style="font-size:1.5em;">📊</div>
             <div class="subtitle">Todo en un solo archivo</div>
-            <button class="btn-primary" style="margin-top: 15px; width: 100%;">Descargar Excel</button>
+            <button class="btn-primary" style="margin-top:15px;width:100%;">Descargar Excel</button>
         </div>
     </div>
-
-    <div style="margin-top: 40px; padding: 20px; background: #f0f4ff; border-radius: 12px; border-left: 4px solid #667eea;">
-        <h3 style="color: #667eea; margin-bottom: 10px;">💡 Recomendaciones de Respaldo</h3>
-        <ul style="color: #555; line-height: 1.8;">
+    <div style="margin-top:40px;padding:20px;background:#f0f4ff;border-radius:12px;border-left:4px solid #667eea;">
+        <h3 style="color:#667eea;margin-bottom:10px;">💡 Recomendaciones de Respaldo</h3>
+        <ul style="color:#555;line-height:1.8;">
             <li>📅 Descarga un respaldo completo cada semana o mes</li>
             <li>☁️ Guarda los archivos en Google Drive, Dropbox o OneDrive</li>
             <li>🔒 Los respaldos te protegen contra pérdida de datos</li>
@@ -601,736 +455,989 @@ tr:hover {
     </div>
 </div>
 
-<!-- SheetJS para exportar a Excel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!-- MODAL EDITAR VENTA -->
+<div class="modal-overlay" id="modalEditarVenta">
+    <div class="modal" style="max-width:700px;">
+        <h2>✏️ Editar Venta</h2>
+        <input type="hidden" id="editVentaIdx">
 
+        <div class="form-group">
+            <label>Cliente</label>
+            <input id="editVentaCliente" oninput="this.value=this.value.toUpperCase()">
+        </div>
+
+        <div id="editLineasVenta" style="display:flex;flex-direction:column;gap:12px;margin:15px 0;"></div>
+
+        <button class="add-producto-btn" onclick="agregarLineaEdicion()">➕ Agregar Producto</button>
+
+        <div style="background:linear-gradient(90deg,#f0f4ff,#f8f0ff);border-radius:10px;padding:14px 18px;margin-top:15px;display:flex;gap:24px;">
+            <div>
+                <div style="font-size:0.78em;color:#999;text-transform:uppercase;letter-spacing:0.5px;">Total Venta</div>
+                <div id="editTotalVenta" style="font-size:1.4em;font-weight:700;color:#667eea;">$0.00</div>
+            </div>
+            <div>
+                <div style="font-size:0.78em;color:#999;text-transform:uppercase;letter-spacing:0.5px;">Ganancia</div>
+                <div id="editTotalGanancia" style="font-size:1.4em;font-weight:700;color:#27ae60;">$0.00</div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-secondary" onclick="cerrarModal('modalEditarVenta')">Cancelar</button>
+            <button class="btn-save" onclick="guardarEdicionVenta()">💾 Guardar Cambios</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL EDITAR STOCK -->
+<div class="modal-overlay" id="modalEditarStock">
+    <div class="modal">
+        <h2>✏️ Editar Producto</h2>
+        <input type="hidden" id="editStockIdx">
+        <div class="form-group">
+            <label>Nombre del Producto</label>
+            <input id="editStockNombre" oninput="this.value=this.value.toUpperCase()">
+        </div>
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input id="editStockCantidad" type="number" style="text-transform:none">
+        </div>
+        <div class="form-group">
+            <label>Costo Unitario ($)</label>
+            <input id="editStockCosto" type="number" step="0.01" style="text-transform:none">
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" onclick="cerrarModal('modalEditarStock')">Cancelar</button>
+            <button class="btn-save" onclick="guardarEdicionStock()">💾 Guardar Cambios</button>
+        </div>
+    </div>
+</div>
+
+<!-- SheetJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-/* ================= FIREBASE ================= */
-
+/* ===== FIREBASE ===== */
 const firebaseConfig = {
-  apiKey: "AIzaSyD4IyKeYuvvy4NEQ2s9EgW0tPFAmlj8Rk0",
-  authDomain: "sistema-ventas-c83a7.firebaseapp.com",
-  databaseURL: "https://sistema-ventas-c83a7-default-rtdb.firebaseio.com",
-  projectId: "sistema-ventas-c83a7",
-  storageBucket: "sistema-ventas-c83a7.appspot.com",
-  messagingSenderId: "485038698597",
-  appId: "1:485038698597:web:ec629f1d0ea5f21a1b568c"
+    apiKey: "AIzaSyD4IyKeYuvvy4NEQ2s9EgW0tPFAmlj8Rk0",
+    authDomain: "sistema-ventas-c83a7.firebaseapp.com",
+    databaseURL: "https://sistema-ventas-c83a7-default-rtdb.firebaseio.com",
+    projectId: "sistema-ventas-c83a7",
+    storageBucket: "sistema-ventas-c83a7.appspot.com",
+    messagingSenderId: "485038698597",
+    appId: "1:485038698597:web:ec629f1d0ea5f21a1b568c"
 };
-
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-/* ================= VARIABLES ================= */
-
+/* ===== VARIABLES ===== */
 let stock = [];
 let ventas = [];
 let filtroActual = 'hoy';
+let lineasVenta = []; // items del carrito de venta actual
 
-/* ================= GUARDAR EN FIREBASE ================= */
+const MESES_NOMBRES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                       'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-function guardar(){
-  db.ref("stock").set(stock);
-  db.ref("ventas").set(ventas);
+/* ===== FIREBASE GUARDAR/CARGAR ===== */
+function guardar() {
+    db.ref("stock").set(stock);
+    db.ref("ventas").set(ventas);
 }
 
-/* ================= CARGAR DESDE FIREBASE ================= */
-
-function cargarDatos(){
-  db.ref("stock").on("value", snap=>{
-    stock = snap.val() || [];
-    mostrarStock();
-    actualizarSelect();
-  });
-
-  db.ref("ventas").on("value", snap=>{
-    ventas = snap.val() || [];
-    mostrarVentas();
-    mostrarClientes();
-    actualizarReportes();
-  });
-}
-
-/* ================= NAVEGACIÓN ================= */
-
-function cambiarSeccion(id, btn){
-    document.querySelectorAll(".container").forEach(c=>c.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-    
-    document.querySelectorAll(".menu button").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    
-    if(id === 'reportes') {
+function cargarDatos() {
+    db.ref("stock").on("value", snap => {
+        stock = snap.val() || [];
+        mostrarStock();
+    });
+    db.ref("ventas").on("value", snap => {
+        ventas = snap.val() || [];
+        mostrarVentas();
+        mostrarClientes();
         actualizarReportes();
-    }
+    });
+}
+
+/* ===== NAVEGACIÓN ===== */
+function cambiarSeccion(id, btn) {
+    document.querySelectorAll(".container").forEach(c => c.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    document.querySelectorAll(".menu button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    if (id === 'reportes') actualizarReportes();
+    if (id === 'meses') { poblarAños(); actualizarMeses(); }
+    if (id === 'ventas') iniciarFormVenta();
 }
 
 function cambiarFiltro(filtro, btn) {
     filtroActual = filtro;
-    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     actualizarReportes();
 }
 
-/* ================= STOCK ================= */
+/* ===== MODALES ===== */
+function abrirModal(id) { document.getElementById(id).classList.add("active"); }
+function cerrarModal(id) { document.getElementById(id).classList.remove("active"); }
 
-function agregarStock(){
-    let n = stockProducto.value.trim();
-    let c = parseInt(stockCantidad.value);
-    let costo = parseFloat(stockCosto.value);
+/* ===== STOCK ===== */
+function agregarStock() {
+    let n = document.getElementById('stockProducto').value.trim().toUpperCase();
+    let c = parseInt(document.getElementById('stockCantidad').value);
+    let costo = parseFloat(document.getElementById('stockCosto').value);
 
-    if(!n || isNaN(c) || isNaN(costo)) {
+    if (!n || isNaN(c) || isNaN(costo) || c < 0 || costo < 0) {
         alert("⚠️ Por favor completa todos los datos correctamente");
         return;
     }
-    
-    if(stock.find(x=>x.nombre.toLowerCase() === n.toLowerCase())) {
+    if (stock.find(x => x.nombre === n)) {
         alert("⚠️ Este producto ya existe en el inventario");
         return;
     }
 
-    stock.push({nombre: n, cantidad: c, costo: costo});
+    stock.push({ nombre: n, cantidad: c, costo: costo });
     guardar();
-
-    stockProducto.value = "";
-    stockCantidad.value = "";
-    stockCosto.value = "";
-    
+    document.getElementById('stockProducto').value = "";
+    document.getElementById('stockCantidad').value = "";
+    document.getElementById('stockCosto').value = "";
     alert("✅ Producto agregado exitosamente");
 }
 
-function guardarCambios(i){
-    let nombre = document.getElementById("nombre"+i).value.trim();
-    let cantidad = parseInt(document.getElementById("cant"+i).value);
-    let costo = parseFloat(document.getElementById("costo"+i).value);
+function abrirEditarStock(i) {
+    document.getElementById('editStockIdx').value = i;
+    document.getElementById('editStockNombre').value = stock[i].nombre;
+    document.getElementById('editStockCantidad').value = stock[i].cantidad;
+    document.getElementById('editStockCosto').value = stock[i].costo;
+    abrirModal('modalEditarStock');
+}
 
-    if(!nombre || isNaN(cantidad) || isNaN(costo)) {
+function guardarEdicionStock() {
+    let i = parseInt(document.getElementById('editStockIdx').value);
+    let nombre = document.getElementById('editStockNombre').value.trim().toUpperCase();
+    let cantidad = parseInt(document.getElementById('editStockCantidad').value);
+    let costo = parseFloat(document.getElementById('editStockCosto').value);
+
+    if (!nombre || isNaN(cantidad) || isNaN(costo)) {
         alert("⚠️ Datos inválidos");
         return;
     }
 
-    stock[i] = {nombre, cantidad, costo};
+    // Si cambió el nombre, verificar duplicado
+    if (nombre !== stock[i].nombre && stock.find((x, idx) => x.nombre === nombre && idx !== i)) {
+        alert("⚠️ Ya existe un producto con ese nombre");
+        return;
+    }
+
+    stock[i] = { nombre, cantidad, costo };
     guardar();
-    alert("✅ Cambios guardados");
+    cerrarModal('modalEditarStock');
+    alert("✅ Producto actualizado");
 }
 
-function eliminarProducto(i){
-    if(!confirm("¿Eliminar este producto del inventario?")) return;
+function eliminarProducto(i) {
+    if (!confirm(`¿Eliminar "${stock[i].nombre}" del inventario?`)) return;
     stock.splice(i, 1);
     guardar();
 }
 
-function mostrarStock(){
-    tablaStock.innerHTML = "";
-    
-    if(stock.length === 0) {
-        tablaStock.innerHTML = `
-            <tr>
-                <td colspan="5" class="empty-state">
-                    <i>📦</i>
-                    <div>No hay productos en el inventario</div>
-                </td>
-            </tr>`;
+function mostrarStock() {
+    const tbody = document.getElementById('tablaStock');
+    tbody.innerHTML = "";
+
+    if (stock.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="empty-state"><i>📦</i><div>No hay productos en el inventario</div></td></tr>`;
         return;
     }
-    
-    stock.forEach((p, i)=>{
-        tablaStock.innerHTML += `
+
+    stock.forEach((p, i) => {
+        let estadoCantidad = p.cantidad === 0 ? ' style="color:#e74c3c;font-weight:bold;"' : (p.cantidad <= 5 ? ' style="color:#f39c12;font-weight:bold;"' : '');
+        tbody.innerHTML += `
         <tr>
-            <td><input id="nombre${i}" value="${p.nombre}" style="width:100%"></td>
-            <td><input type="number" id="cant${i}" value="${p.cantidad}" style="width:80px"></td>
-            <td><input type="number" step="0.01" id="costo${i}" value="${p.costo}" style="width:100px"></td>
-            <td><button class="btn-save" onclick="guardarCambios(${i})">💾</button></td>
-            <td><button class="btn-danger" onclick="eliminarProducto(${i})">🗑️</button></td>
+            <td>${p.nombre}</td>
+            <td${estadoCantidad}>${p.cantidad}${p.cantidad === 0 ? ' ⚠️' : ''}</td>
+            <td>$${parseFloat(p.costo).toFixed(2)}</td>
+            <td><button class="btn-edit" onclick="abrirEditarStock(${i})">✏️ Editar</button></td>
+            <td><button class="btn-danger" onclick="eliminarProducto(${i})">🗑️ Eliminar</button></td>
         </tr>`;
     });
 }
 
-function actualizarSelect(){
-    ventaProducto.innerHTML = "";
-    
-    let productosDisponibles = stock.filter(p => p.cantidad > 0);
-    
-    if(productosDisponibles.length === 0) {
-        ventaProducto.innerHTML = `<option>No hay productos disponibles</option>`;
-        return;
-    }
-    
-    productosDisponibles.forEach(p=>{
-        ventaProducto.innerHTML += `<option>${p.nombre}</option>`;
-    });
+/* ===== VENTAS MULTI-PRODUCTO ===== */
+function iniciarFormVenta() {
+    lineasVenta = [];
+    renderizarLineasVenta();
+    agregarLineaProducto(); // agregar la primera línea automáticamente
 }
 
-/* ================= VENTAS ================= */
+function limpiarFormVenta() {
+    document.getElementById('cliente').value = "";
+    iniciarFormVenta();
+}
 
-function agregarVenta(){
-    let cli = cliente.value.trim();
-    let prod = ventaProducto.value;
-    let cant = parseInt(ventaCantidad.value);
-    let pv = parseFloat(precioVenta.value);
+function agregarLineaProducto() {
+    lineasVenta.push({ productoNombre: '', cantidad: 1, precio: '' });
+    renderizarLineasVenta();
+}
 
-    let p = stock.find(x => x.nombre === prod);
-    
-    if(!cli || !p || isNaN(cant) || isNaN(pv)) {
-        alert("⚠️ Por favor completa todos los datos");
+function eliminarLineaProducto(idx) {
+    if (lineasVenta.length === 1) {
+        alert("⚠️ Debe haber al menos un producto en la venta");
         return;
     }
-    
-    if(p.cantidad < cant) {
-        alert(`⚠️ Stock insuficiente. Solo hay ${p.cantidad} unidades disponibles`);
+    lineasVenta.splice(idx, 1);
+    renderizarLineasVenta();
+}
+
+function renderizarLineasVenta() {
+    const contenedor = document.getElementById('productosVentaLista');
+    const productosDisponibles = stock.filter(p => p.cantidad > 0);
+
+    if (productosDisponibles.length === 0) {
+        contenedor.innerHTML = `<div style="background:#fff3cd;padding:15px;border-radius:8px;color:#856404;">⚠️ No hay productos disponibles en el stock</div>`;
         return;
     }
 
-    p.cantidad -= cant;
-    let total = pv * cant;
-    let ganancia = (pv - p.costo) * cant;
+    contenedor.innerHTML = lineasVenta.map((linea, idx) => {
+        let optionsHTML = productosDisponibles.map(p =>
+            `<option value="${p.nombre}" ${p.nombre === linea.productoNombre ? 'selected' : ''}>${p.nombre} (Stock: ${p.cantidad})</option>`
+        ).join('');
 
-    // Guardamos con timestamp completo para mejor filtrado
+        let subtotalBar = '';
+        if (linea.productoNombre && linea.cantidad && linea.precio) {
+            const prod = stock.find(p => p.nombre === linea.productoNombre);
+            const subtotal = linea.cantidad * linea.precio;
+            const ganancia = prod ? (linea.precio - prod.costo) * linea.cantidad : 0;
+            subtotalBar = `
+            <div class="producto-subtotal-bar">
+                <div class="subtotal-item">
+                    <span class="s-label">Subtotal</span>
+                    <span class="s-value ventas-color">$${subtotal.toFixed(2)}</span>
+                </div>
+                <div class="subtotal-item">
+                    <span class="s-label">Ganancia</span>
+                    <span class="s-value ganancia-color">$${ganancia.toFixed(2)}</span>
+                </div>
+                ${prod ? `<div class="subtotal-item">
+                    <span class="s-label">Costo unitario</span>
+                    <span class="s-value" style="color:#aaa;">$${parseFloat(prod.costo).toFixed(2)}</span>
+                </div>` : ''}
+            </div>`;
+        }
+
+        return `
+        <div class="producto-venta-item" id="linea_${idx}">
+            <div class="producto-item-header">
+                <span class="producto-item-numero">Producto ${idx + 1}</span>
+                <button class="remove-item" onclick="eliminarLineaProducto(${idx})" title="Eliminar">✕</button>
+            </div>
+            <div class="producto-row">
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Producto</label>
+                    <select onchange="actualizarLinea(${idx},'producto',this.value)">
+                        <option value="">-- Seleccionar --</option>
+                        ${optionsHTML}
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Cantidad</label>
+                    <input type="number" min="1" value="${linea.cantidad}" style="text-transform:none"
+                        onchange="actualizarLinea(${idx},'cantidad',this.value)">
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Precio Venta ($)</label>
+                    <input type="number" step="0.01" min="0" value="${linea.precio}" style="text-transform:none"
+                        placeholder="0.00"
+                        onchange="actualizarLinea(${idx},'precio',this.value)">
+                </div>
+            </div>
+            ${subtotalBar}
+        </div>`;
+    }).join('');
+}
+
+function actualizarLinea(idx, campo, valor) {
+    if (campo === 'producto') lineasVenta[idx].productoNombre = valor;
+    else if (campo === 'cantidad') lineasVenta[idx].cantidad = parseInt(valor) || 1;
+    else if (campo === 'precio') lineasVenta[idx].precio = parseFloat(valor) || '';
+    renderizarLineasVenta();
+}
+
+function registrarVenta() {
+    let cli = document.getElementById('cliente').value.trim().toUpperCase();
+
+    if (!cli) {
+        alert("⚠️ Ingresa el nombre del cliente");
+        return;
+    }
+
+    // Validar todas las líneas
+    for (let i = 0; i < lineasVenta.length; i++) {
+        let l = lineasVenta[i];
+        if (!l.productoNombre) { alert(`⚠️ Selecciona un producto en la línea ${i+1}`); return; }
+        if (!l.cantidad || l.cantidad <= 0) { alert(`⚠️ Cantidad inválida en línea ${i+1}`); return; }
+        if (!l.precio || l.precio <= 0) { alert(`⚠️ Precio inválido en línea ${i+1}`); return; }
+
+        let prod = stock.find(p => p.nombre === l.productoNombre);
+        if (!prod) { alert(`⚠️ Producto "${l.productoNombre}" no encontrado en stock`); return; }
+        if (prod.cantidad < l.cantidad) {
+            alert(`⚠️ Stock insuficiente de ${l.productoNombre}. Solo hay ${prod.cantidad} unidades`);
+            return;
+        }
+    }
+
+    // Verificar duplicados de producto dentro de la misma venta
+    let nombresVenta = lineasVenta.map(l => l.productoNombre);
+    let hasDuplicados = nombresVenta.some((n, i) => nombresVenta.indexOf(n) !== i && n !== '');
+    if (hasDuplicados) {
+        alert("⚠️ Hay productos repetidos en la venta. Por favor combínalos en una sola línea.");
+        return;
+    }
+
+    // Descontar stock y calcular totales
+    let totalVenta = 0;
+    let gananciaTotal = 0;
+    let itemsVenta = [];
+
+    lineasVenta.forEach(l => {
+        let prod = stock.find(p => p.nombre === l.productoNombre);
+        prod.cantidad -= l.cantidad;
+        let subtotal = l.precio * l.cantidad;
+        let ganancia = (l.precio - prod.costo) * l.cantidad;
+        totalVenta += subtotal;
+        gananciaTotal += ganancia;
+        itemsVenta.push({
+            nombre: l.productoNombre,
+            cantidad: l.cantidad,
+            precioVenta: l.precio,
+            costo: prod.costo,
+            subtotal: subtotal,
+            ganancia: ganancia
+        });
+    });
+
     let ahora = new Date();
     ventas.push({
         cliente: cli,
-        nombre: prod,
-        cantidad: cant,
-        total: total,
-        ganancia: ganancia,
+        items: itemsVenta,
+        total: totalVenta,
+        ganancia: gananciaTotal,
         fecha: ahora.toLocaleDateString('es-ES'),
         timestamp: ahora.getTime()
     });
-    
-    guardar();
 
-    cliente.value = "";
-    ventaCantidad.value = "";
-    precioVenta.value = "";
-    
-    alert("✅ Venta registrada exitosamente");
+    guardar();
+    limpiarFormVenta();
+    alert(`✅ Venta registrada exitosamente\n💵 Total: $${totalVenta.toFixed(2)}\n📈 Ganancia: $${gananciaTotal.toFixed(2)}`);
 }
 
-function mostrarVentas(){
-    tablaVentas.innerHTML = "";
-    let totalVentasAcum = 0;
-    let totalGananciasAcum = 0;
+function eliminarVenta(i) {
+    if (!confirm("¿Eliminar esta venta? Se devolverá el stock.")) return;
+    let v = ventas[i];
 
-    if(ventas.length === 0) {
-        tablaVentas.innerHTML = `
-            <tr>
-                <td colspan="7" class="empty-state">
-                    <i>💰</i>
-                    <div>No hay ventas registradas</div>
-                </td>
-            </tr>`;
-        totalVentas.textContent = "0.00";
-        totalGanancias.textContent = "0.00";
-        return;
+    // Devolver stock según items (nueva estructura) o nombre (estructura vieja)
+    if (v.items) {
+        v.items.forEach(item => {
+            let prod = stock.find(p => p.nombre === item.nombre);
+            if (prod) prod.cantidad += item.cantidad;
+        });
+    } else if (v.nombre) {
+        let prod = stock.find(p => p.nombre === v.nombre);
+        if (prod) prod.cantidad += v.cantidad;
     }
 
-    ventas.forEach((v, i)=>{
-        totalVentasAcum += v.total;
-        totalGananciasAcum += v.ganancia;
-        tablaVentas.innerHTML += `
-        <tr>
-            <td>${v.cliente}</td>
-            <td>${v.nombre}</td>
-            <td>${v.cantidad}</td>
-            <td>$${v.total.toFixed(2)}</td>
-            <td>$${v.ganancia.toFixed(2)}</td>
-            <td>${v.fecha}</td>
-            <td><button class="btn-danger" onclick="eliminarVenta(${i})">🗑️</button></td>
-        </tr>`;
-    });
-    
-    totalVentas.textContent = totalVentasAcum.toFixed(2);
-    totalGanancias.textContent = totalGananciasAcum.toFixed(2);
-}
-
-function eliminarVenta(i){
-    if(!confirm("¿Eliminar esta venta?")) return;
-    
-    let v = ventas[i];
-    let p = stock.find(x => x.nombre === v.nombre);
-    if(p) p.cantidad += v.cantidad;
-    
     ventas.splice(i, 1);
     guardar();
 }
 
-/* ================= CLIENTES ================= */
+function mostrarVentas() {
+    const tbody = document.getElementById('tablaVentas');
+    tbody.innerHTML = "";
+    let totalVentasAcum = 0;
+    let totalGananciasAcum = 0;
 
-function mostrarClientes(){
+    if (ventas.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-state"><i>💰</i><div>No hay ventas registradas</div></td></tr>`;
+        document.getElementById('totalVentas').textContent = "0.00";
+        document.getElementById('totalGanancias').textContent = "0.00";
+        return;
+    }
+
+    // Mostrar más recientes primero
+    let ventasOrdenadas = [...ventas].map((v, i) => ({ ...v, idx: i }))
+        .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+    ventasOrdenadas.forEach(v => {
+        totalVentasAcum += v.total;
+        totalGananciasAcum += v.ganancia;
+
+        let productosHTML = '';
+        if (v.items && v.items.length > 0) {
+            productosHTML = `<div class="venta-tag-list">
+                ${v.items.map(item => `
+                    <div class="venta-tag">
+                        <span class="tag-nombre">${item.nombre}</span>
+                        <span class="tag-cant">x${item.cantidad}</span>
+                        <span style="color:#999;font-size:0.9em;">$${parseFloat(item.precioVenta).toFixed(2)}</span>
+                    </div>`).join('')}
+            </div>`;
+        } else {
+            productosHTML = `<div class="venta-tag-list"><div class="venta-tag">
+                <span class="tag-nombre">${v.nombre || '-'}</span>
+                <span class="tag-cant">x${v.cantidad || 1}</span>
+            </div></div>`;
+        }
+
+        tbody.innerHTML += `
+        <tr>
+            <td>${v.cliente}</td>
+            <td>${productosHTML}</td>
+            <td>$${v.total.toFixed(2)}</td>
+            <td>$${v.ganancia.toFixed(2)}</td>
+            <td>${v.fecha}</td>
+            <td><button class="btn-edit" onclick="abrirEditarVenta(${v.idx})">✏️ Editar</button></td>
+            <td><button class="btn-danger" onclick="eliminarVenta(${v.idx})">🗑️ Eliminar</button></td>
+        </tr>`;
+    });
+
+    document.getElementById('totalVentas').textContent = totalVentasAcum.toFixed(2);
+    document.getElementById('totalGanancias').textContent = totalGananciasAcum.toFixed(2);
+}
+
+/* ===== CLIENTES ===== */
+function mostrarClientes() {
     let resumen = {};
-
-    ventas.forEach(v=>{
-        if(!resumen[v.cliente]) resumen[v.cliente] = {cant: 0, total: 0};
-        resumen[v.cliente].cant += v.cantidad;
+    ventas.forEach(v => {
+        if (!resumen[v.cliente]) resumen[v.cliente] = { cant: 0, total: 0 };
+        let cantItems = v.items ? v.items.reduce((s, it) => s + it.cantidad, 0) : (v.cantidad || 0);
+        resumen[v.cliente].cant += cantItems;
         resumen[v.cliente].total += v.total;
     });
 
-    tablaClientes.innerHTML = "";
-    
-    if(Object.keys(resumen).length === 0) {
-        tablaClientes.innerHTML = `
-            <tr>
-                <td colspan="3" class="empty-state">
-                    <i>👥</i>
-                    <div>No hay clientes registrados</div>
-                </td>
-            </tr>`;
+    const tbody = document.getElementById('tablaClientes');
+    tbody.innerHTML = "";
+    if (Object.keys(resumen).length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" class="empty-state"><i>👥</i><div>No hay clientes registrados</div></td></tr>`;
         return;
     }
-    
-    Object.keys(resumen).forEach(c=>{
-        tablaClientes.innerHTML += `
-        <tr>
-            <td>${c}</td>
-            <td>${resumen[c].cant}</td>
-            <td>$${resumen[c].total.toFixed(2)}</td>
-        </tr>`;
+    Object.keys(resumen).sort((a, b) => resumen[b].total - resumen[a].total).forEach(c => {
+        tbody.innerHTML += `<tr><td>${c}</td><td>${resumen[c].cant}</td><td>$${resumen[c].total.toFixed(2)}</td></tr>`;
     });
 }
 
-/* ================= REPORTES ================= */
-
+/* ===== REPORTES ===== */
 function obtenerRangoFechas(filtro) {
     let ahora = new Date();
     let inicio = new Date();
-    
-    // Normalizar hora a medianoche para comparaciones
     ahora.setHours(23, 59, 59, 999);
     inicio.setHours(0, 0, 0, 0);
-    
-    switch(filtro) {
-        case 'hoy':
-            // inicio ya está en medianoche de hoy
-            break;
-            
+
+    switch (filtro) {
+        case 'hoy': break;
         case 'ayer':
             inicio.setDate(inicio.getDate() - 1);
             ahora = new Date(inicio);
             ahora.setHours(23, 59, 59, 999);
             break;
-            
         case 'semana':
-            // Inicio de la semana (Lunes)
             let dia = inicio.getDay();
-            let diff = dia === 0 ? -6 : 1 - dia; // Si es domingo, retroceder 6 días
+            let diff = dia === 0 ? -6 : 1 - dia;
             inicio.setDate(inicio.getDate() + diff);
             break;
-            
-        case 'mes':
-            inicio.setDate(1); // Primer día del mes
-            break;
-            
-        case 'año':
-            inicio.setMonth(0, 1); // 1 de enero
-            break;
+        case 'mes': inicio.setDate(1); break;
+        case 'año': inicio.setMonth(0, 1); break;
     }
-    
-    return {inicio: inicio.getTime(), fin: ahora.getTime()};
+    return { inicio: inicio.getTime(), fin: ahora.getTime() };
 }
 
-function filtrarVentas(ventas, rango) {
-    return ventas.filter(v => {
-        // Si no tiene timestamp, lo creamos desde la fecha
-        let timestamp = v.timestamp;
-        if(!timestamp) {
+function filtrarVentas(vts, rango) {
+    return vts.filter(v => {
+        let ts = v.timestamp;
+        if (!ts && v.fecha) {
             let partes = v.fecha.split('/');
-            if(partes.length === 3) {
-                let fecha = new Date(partes[2], partes[1] - 1, partes[0]);
-                timestamp = fecha.getTime();
-            }
+            if (partes.length === 3) ts = new Date(partes[2], partes[1]-1, partes[0]).getTime();
         }
-        
-        return timestamp >= rango.inicio && timestamp <= rango.fin;
+        return ts >= rango.inicio && ts <= rango.fin;
     });
 }
 
 function actualizarReportes() {
     let rango = obtenerRangoFechas(filtroActual);
-    let ventasFiltradas = filtrarVentas(ventas, rango);
-    
-    // Calcular métricas
-    let numVentas = ventasFiltradas.length;
-    let totalVendido = ventasFiltradas.reduce((sum, v) => sum + v.total, 0);
-    let gananciaTotal = ventasFiltradas.reduce((sum, v) => sum + v.ganancia, 0);
-    let productosVendidos = ventasFiltradas.reduce((sum, v) => sum + v.cantidad, 0);
-    
-    // Clientes únicos
-    let clientesUnicos = new Set(ventasFiltradas.map(v => v.cliente));
-    let numClientes = clientesUnicos.size;
-    
-    // Actualizar cards
+    let vf = filtrarVentas(ventas, rango);
+
+    let numVentas = vf.length;
+    let totalVendido = vf.reduce((s, v) => s + v.total, 0);
+    let gananciaTotal = vf.reduce((s, v) => s + v.ganancia, 0);
+    let productosVendidos = vf.reduce((s, v) => {
+        if (v.items) return s + v.items.reduce((ss, it) => ss + it.cantidad, 0);
+        return s + (v.cantidad || 0);
+    }, 0);
+    let clientesUnicos = new Set(vf.map(v => v.cliente)).size;
+
     document.getElementById('reportVentas').textContent = numVentas;
     document.getElementById('reportTotalVendido').textContent = '$' + totalVendido.toFixed(2);
     document.getElementById('reportGanancias').textContent = '$' + gananciaTotal.toFixed(2);
     document.getElementById('reportProductos').textContent = productosVendidos;
-    document.getElementById('reportClientes').textContent = numClientes;
-    
-    // Top Productos
-    mostrarTopProductos(ventasFiltradas);
-    
-    // Top Clientes
-    mostrarTopClientes(ventasFiltradas);
+    document.getElementById('reportClientes').textContent = clientesUnicos;
+
+    mostrarTopProductos(vf);
+    mostrarTopClientes(vf);
 }
 
-function mostrarTopProductos(ventasFiltradas) {
+function mostrarTopProductos(vf) {
     let productos = {};
-    
-    ventasFiltradas.forEach(v => {
-        if(!productos[v.nombre]) {
-            productos[v.nombre] = {cantidad: 0, ingresos: 0};
+    vf.forEach(v => {
+        if (v.items) {
+            v.items.forEach(it => {
+                if (!productos[it.nombre]) productos[it.nombre] = { cantidad: 0, ingresos: 0 };
+                productos[it.nombre].cantidad += it.cantidad;
+                productos[it.nombre].ingresos += it.subtotal;
+            });
+        } else if (v.nombre) {
+            if (!productos[v.nombre]) productos[v.nombre] = { cantidad: 0, ingresos: 0 };
+            productos[v.nombre].cantidad += (v.cantidad || 0);
+            productos[v.nombre].ingresos += v.total;
         }
-        productos[v.nombre].cantidad += v.cantidad;
-        productos[v.nombre].ingresos += v.total;
     });
-    
-    let topProductos = Object.entries(productos)
-        .sort((a, b) => b[1].cantidad - a[1].cantidad)
-        .slice(0, 5);
-    
-    tablaTopProductos.innerHTML = "";
-    
-    if(topProductos.length === 0) {
-        tablaTopProductos.innerHTML = `
-            <tr>
-                <td colspan="3" class="empty-state">
-                    <i>📦</i>
-                    <div>No hay datos para este período</div>
-                </td>
-            </tr>`;
-        return;
-    }
-    
-    topProductos.forEach(([nombre, datos]) => {
-        tablaTopProductos.innerHTML += `
-        <tr>
-            <td>${nombre}</td>
-            <td>${datos.cantidad}</td>
-            <td>$${datos.ingresos.toFixed(2)}</td>
-        </tr>`;
-    });
+
+    let top = Object.entries(productos).sort((a, b) => b[1].cantidad - a[1].cantidad).slice(0, 5);
+    const tbody = document.getElementById('tablaTopProductos');
+    tbody.innerHTML = top.length === 0
+        ? `<tr><td colspan="3" class="empty-state"><i>📦</i>No hay datos para este período</td></tr>`
+        : top.map(([n, d]) => `<tr><td>${n}</td><td>${d.cantidad}</td><td>$${d.ingresos.toFixed(2)}</td></tr>`).join('');
 }
 
-function mostrarTopClientes(ventasFiltradas) {
+function mostrarTopClientes(vf) {
     let clientes = {};
-    
-    ventasFiltradas.forEach(v => {
-        if(!clientes[v.cliente]) {
-            clientes[v.cliente] = {compras: 0, total: 0};
-        }
-        clientes[v.cliente].compras += 1;
+    vf.forEach(v => {
+        if (!clientes[v.cliente]) clientes[v.cliente] = { compras: 0, total: 0 };
+        clientes[v.cliente].compras++;
         clientes[v.cliente].total += v.total;
     });
-    
-    let topClientes = Object.entries(clientes)
-        .sort((a, b) => b[1].total - a[1].total)
-        .slice(0, 5);
-    
-    tablaTopClientes.innerHTML = "";
-    
-    if(topClientes.length === 0) {
-        tablaTopClientes.innerHTML = `
-            <tr>
-                <td colspan="3" class="empty-state">
-                    <i>👥</i>
-                    <div>No hay datos para este período</div>
-                </td>
-            </tr>`;
-        return;
-    }
-    
-    topClientes.forEach(([nombre, datos]) => {
-        tablaTopClientes.innerHTML += `
-        <tr>
-            <td>${nombre}</td>
-            <td>${datos.compras}</td>
-            <td>$${datos.total.toFixed(2)}</td>
-        </tr>`;
-    });
+
+    let top = Object.entries(clientes).sort((a, b) => b[1].total - a[1].total).slice(0, 5);
+    const tbody = document.getElementById('tablaTopClientes');
+    tbody.innerHTML = top.length === 0
+        ? `<tr><td colspan="3" class="empty-state"><i>👥</i>No hay datos para este período</td></tr>`
+        : top.map(([n, d]) => `<tr><td>${n}</td><td>${d.compras}</td><td>$${d.total.toFixed(2)}</td></tr>`).join('');
 }
 
-/* ================= EXPORTAR A EXCEL ================= */
+/* ===== POR MESES ===== */
+function poblarAños() {
+    const sel = document.getElementById('añoSelector');
+    let años = new Set();
+    let añoActual = new Date().getFullYear();
+    años.add(añoActual);
 
-function exportarInventario() {
-    if(stock.length === 0) {
-        alert("⚠️ No hay productos en el inventario para exportar");
-        return;
-    }
-
-    // Preparar datos
-    const datos = stock.map(p => ({
-        'Producto': p.nombre,
-        'Cantidad': p.cantidad,
-        'Costo Unitario': p.costo,
-        'Valor Total': p.cantidad * p.costo
-    }));
-
-    // Calcular totales
-    const totalUnidades = stock.reduce((sum, p) => sum + p.cantidad, 0);
-    const valorTotal = stock.reduce((sum, p) => sum + (p.cantidad * p.costo), 0);
-
-    // Agregar fila de totales
-    datos.push({
-        'Producto': 'TOTAL',
-        'Cantidad': totalUnidades,
-        'Costo Unitario': '',
-        'Valor Total': valorTotal
+    ventas.forEach(v => {
+        let ts = v.timestamp;
+        if (!ts && v.fecha) {
+            let p = v.fecha.split('/');
+            if (p.length === 3) ts = new Date(p[2], p[1]-1, p[0]).getTime();
+        }
+        if (ts) años.add(new Date(ts).getFullYear());
     });
 
-    // Crear libro de Excel
+    let añosOrdenados = [...años].sort((a, b) => b - a);
+    sel.innerHTML = añosOrdenados.map(a => `<option value="${a}">${a}</option>`).join('');
+}
+
+function actualizarMeses() {
+    const año = parseInt(document.getElementById('añoSelector').value) || new Date().getFullYear();
+    let datosMeses = Array(12).fill(null).map(() => ({ ventas: 0, ganancias: 0, transacciones: 0 }));
+
+    ventas.forEach(v => {
+        let ts = v.timestamp;
+        if (!ts && v.fecha) {
+            let p = v.fecha.split('/');
+            if (p.length === 3) ts = new Date(p[2], p[1]-1, p[0]).getTime();
+        }
+        if (!ts) return;
+        let fecha = new Date(ts);
+        if (fecha.getFullYear() !== año) return;
+        let mes = fecha.getMonth();
+        datosMeses[mes].ventas += v.total;
+        datosMeses[mes].ganancias += v.ganancia;
+        datosMeses[mes].transacciones++;
+    });
+
+    const grid = document.getElementById('mesesGrid');
+    grid.innerHTML = MESES_NOMBRES.map((nombre, i) => {
+        let d = datosMeses[i];
+        let esActual = new Date().getMonth() === i && new Date().getFullYear() === año;
+        return `
+        <div class="mes-card" style="${esActual ? 'border-top-color:#27ae60;box-shadow:0 4px 15px rgba(39,174,96,0.2);' : ''}">
+            <h4>${esActual ? '🟢 ' : ''}${nombre}</h4>
+            <div class="mes-stat">
+                <span class="ms-label">💵 Ventas</span>
+                <span class="ms-ventas">$${d.ventas.toFixed(2)}</span>
+            </div>
+            <div class="mes-stat">
+                <span class="ms-label">📈 Ganancia</span>
+                <span class="ms-ganancia">$${d.ganancias.toFixed(2)}</span>
+            </div>
+            <div class="mes-transacciones">${d.transacciones} transacción${d.transacciones !== 1 ? 'es' : ''}</div>
+        </div>`;
+    }).join('');
+
+    // Totales del año
+    let totalAnoV = datosMeses.reduce((s, m) => s + m.ventas, 0);
+    let totalAnoG = datosMeses.reduce((s, m) => s + m.ganancias, 0);
+    document.getElementById('totalAnoVentas').textContent = totalAnoV.toFixed(2);
+    document.getElementById('totalAnoGanancias').textContent = totalAnoG.toFixed(2);
+}
+
+/* ===== EXPORTAR ===== */
+function exportarInventario() {
+    if (stock.length === 0) { alert("⚠️ No hay productos para exportar"); return; }
+    const datos = stock.map(p => ({
+        'Producto': p.nombre, 'Cantidad': p.cantidad,
+        'Costo Unitario': p.costo, 'Valor Total': p.cantidad * p.costo
+    }));
+    datos.push({
+        'Producto': 'TOTAL',
+        'Cantidad': stock.reduce((s, p) => s + p.cantidad, 0),
+        'Costo Unitario': '',
+        'Valor Total': stock.reduce((s, p) => s + p.cantidad * p.costo, 0)
+    });
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.json_to_sheet(datos);
-
-    // Ajustar ancho de columnas
-    ws['!cols'] = [
-        {wch: 30}, // Producto
-        {wch: 12}, // Cantidad
-        {wch: 15}, // Costo
-        {wch: 15}  // Valor Total
-    ];
-
+    ws['!cols'] = [{wch:30},{wch:12},{wch:15},{wch:15}];
     XLSX.utils.book_append_sheet(wb, ws, "Inventario");
-
-    // Descargar
-    const fecha = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
-    XLSX.writeFile(wb, `Inventario_${fecha}.xlsx`);
-    
-    alert("✅ Inventario exportado exitosamente");
+    XLSX.writeFile(wb, `Inventario_${fechaHoy()}.xlsx`);
+    alert("✅ Inventario exportado");
 }
 
 function exportarVentas() {
-    if(ventas.length === 0) {
-        alert("⚠️ No hay ventas para exportar");
-        return;
-    }
-
-    // Preparar datos
-    const datos = ventas.map(v => ({
-        'Fecha': v.fecha,
-        'Cliente': v.cliente,
-        'Producto': v.nombre,
-        'Cantidad': v.cantidad,
-        'Total Venta': v.total,
-        'Ganancia': v.ganancia
-    }));
-
-    // Calcular totales
-    const totalVentas = ventas.reduce((sum, v) => sum + v.total, 0);
-    const totalGanancias = ventas.reduce((sum, v) => sum + v.ganancia, 0);
-
-    // Agregar fila de totales
-    datos.push({
-        'Fecha': '',
-        'Cliente': '',
-        'Producto': 'TOTAL',
-        'Cantidad': ventas.reduce((sum, v) => sum + v.cantidad, 0),
-        'Total Venta': totalVentas,
-        'Ganancia': totalGanancias
+    if (ventas.length === 0) { alert("⚠️ No hay ventas para exportar"); return; }
+    const datos = [];
+    ventas.forEach(v => {
+        if (v.items && v.items.length > 0) {
+            v.items.forEach((item, idx) => {
+                datos.push({
+                    'Fecha': idx === 0 ? v.fecha : '',
+                    'Cliente': idx === 0 ? v.cliente : '',
+                    'Producto': item.nombre,
+                    'Cantidad': item.cantidad,
+                    'Precio Unitario': item.precioVenta,
+                    'Subtotal': item.subtotal,
+                    'Ganancia': item.ganancia
+                });
+            });
+        } else {
+            datos.push({
+                'Fecha': v.fecha, 'Cliente': v.cliente,
+                'Producto': v.nombre || '-', 'Cantidad': v.cantidad || 0,
+                'Precio Unitario': '', 'Subtotal': v.total, 'Ganancia': v.ganancia
+            });
+        }
     });
-
-    // Crear libro de Excel
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.json_to_sheet(datos);
-
-    // Ajustar ancho de columnas
-    ws['!cols'] = [
-        {wch: 12}, // Fecha
-        {wch: 20}, // Cliente
-        {wch: 25}, // Producto
-        {wch: 10}, // Cantidad
-        {wch: 15}, // Total
-        {wch: 15}  // Ganancia
-    ];
-
+    ws['!cols'] = [{wch:12},{wch:20},{wch:25},{wch:10},{wch:15},{wch:12},{wch:12}];
     XLSX.utils.book_append_sheet(wb, ws, "Ventas");
-
-    // Descargar
-    const fecha = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
-    XLSX.writeFile(wb, `Ventas_${fecha}.xlsx`);
-    
-    alert("✅ Ventas exportadas exitosamente");
+    XLSX.writeFile(wb, `Ventas_${fechaHoy()}.xlsx`);
+    alert("✅ Ventas exportadas");
 }
 
 function exportarClientes() {
-    if(ventas.length === 0) {
-        alert("⚠️ No hay datos de clientes para exportar");
-        return;
-    }
-
-    // Calcular resumen por cliente
+    if (ventas.length === 0) { alert("⚠️ No hay datos de clientes"); return; }
     let resumen = {};
     ventas.forEach(v => {
-        if(!resumen[v.cliente]) {
-            resumen[v.cliente] = {
-                compras: 0,
-                unidades: 0,
-                total: 0
-            };
-        }
-        resumen[v.cliente].compras += 1;
-        resumen[v.cliente].unidades += v.cantidad;
+        if (!resumen[v.cliente]) resumen[v.cliente] = {compras:0,unidades:0,total:0};
+        let cant = v.items ? v.items.reduce((s, it) => s + it.cantidad, 0) : (v.cantidad || 0);
+        resumen[v.cliente].compras++;
+        resumen[v.cliente].unidades += cant;
         resumen[v.cliente].total += v.total;
     });
-
-    // Preparar datos
-    const datos = Object.keys(resumen).map(cliente => ({
-        'Cliente': cliente,
-        'Número de Compras': resumen[cliente].compras,
-        'Productos Comprados': resumen[cliente].unidades,
-        'Total Gastado': resumen[cliente].total
-    }));
-
-    // Ordenar por total gastado
-    datos.sort((a, b) => b['Total Gastado'] - a['Total Gastado']);
-
-    // Calcular totales
-    datos.push({
-        'Cliente': 'TOTAL',
-        'Número de Compras': datos.reduce((sum, c) => sum + c['Número de Compras'], 0),
-        'Productos Comprados': datos.reduce((sum, c) => sum + c['Productos Comprados'], 0),
-        'Total Gastado': datos.reduce((sum, c) => sum + c['Total Gastado'], 0)
-    });
-
-    // Crear libro de Excel
+    const datos = Object.keys(resumen).map(c => ({
+        'Cliente': c,
+        'Número de Compras': resumen[c].compras,
+        'Productos Comprados': resumen[c].unidades,
+        'Total Gastado': resumen[c].total
+    })).sort((a, b) => b['Total Gastado'] - a['Total Gastado']);
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.json_to_sheet(datos);
-
-    // Ajustar ancho de columnas
-    ws['!cols'] = [
-        {wch: 25}, // Cliente
-        {wch: 18}, // Compras
-        {wch: 20}, // Productos
-        {wch: 15}  // Total
-    ];
-
+    ws['!cols'] = [{wch:25},{wch:18},{wch:20},{wch:15}];
     XLSX.utils.book_append_sheet(wb, ws, "Clientes");
-
-    // Descargar
-    const fecha = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
-    XLSX.writeFile(wb, `Clientes_${fecha}.xlsx`);
-    
-    alert("✅ Datos de clientes exportados exitosamente");
+    XLSX.writeFile(wb, `Clientes_${fechaHoy()}.xlsx`);
+    alert("✅ Clientes exportados");
 }
 
 function exportarCompleto() {
-    // Crear libro de Excel
     const wb = XLSX.utils.book_new();
-    const fecha = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
+    const fecha = fechaHoy();
 
-    // HOJA 1: INVENTARIO
-    if(stock.length > 0) {
-        const datosStock = stock.map(p => ({
-            'Producto': p.nombre,
-            'Cantidad': p.cantidad,
-            'Costo Unitario': p.costo,
-            'Valor Total': p.cantidad * p.costo
-        }));
-
-        datosStock.push({
-            'Producto': 'TOTAL',
-            'Cantidad': stock.reduce((sum, p) => sum + p.cantidad, 0),
-            'Costo Unitario': '',
-            'Valor Total': stock.reduce((sum, p) => sum + (p.cantidad * p.costo), 0)
-        });
-
-        const wsStock = XLSX.utils.json_to_sheet(datosStock);
-        wsStock['!cols'] = [{wch: 30}, {wch: 12}, {wch: 15}, {wch: 15}];
-        XLSX.utils.book_append_sheet(wb, wsStock, "Inventario");
+    // Inventario
+    if (stock.length > 0) {
+        const d = stock.map(p => ({'Producto':p.nombre,'Cantidad':p.cantidad,'Costo':p.costo,'Valor Total':p.cantidad*p.costo}));
+        const ws = XLSX.utils.json_to_sheet(d);
+        ws['!cols'] = [{wch:30},{wch:12},{wch:15},{wch:15}];
+        XLSX.utils.book_append_sheet(wb, ws, "Inventario");
     }
 
-    // HOJA 2: VENTAS
-    if(ventas.length > 0) {
-        const datosVentas = ventas.map(v => ({
-            'Fecha': v.fecha,
-            'Cliente': v.cliente,
-            'Producto': v.nombre,
-            'Cantidad': v.cantidad,
-            'Total Venta': v.total,
-            'Ganancia': v.ganancia
-        }));
-
-        datosVentas.push({
-            'Fecha': '',
-            'Cliente': '',
-            'Producto': 'TOTAL',
-            'Cantidad': ventas.reduce((sum, v) => sum + v.cantidad, 0),
-            'Total Venta': ventas.reduce((sum, v) => sum + v.total, 0),
-            'Ganancia': ventas.reduce((sum, v) => sum + v.ganancia, 0)
-        });
-
-        const wsVentas = XLSX.utils.json_to_sheet(datosVentas);
-        wsVentas['!cols'] = [{wch: 12}, {wch: 20}, {wch: 25}, {wch: 10}, {wch: 15}, {wch: 15}];
-        XLSX.utils.book_append_sheet(wb, wsVentas, "Ventas");
-    }
-
-    // HOJA 3: CLIENTES
-    if(ventas.length > 0) {
-        let resumen = {};
+    // Ventas
+    if (ventas.length > 0) {
+        const datos = [];
         ventas.forEach(v => {
-            if(!resumen[v.cliente]) {
-                resumen[v.cliente] = {compras: 0, unidades: 0, total: 0};
+            if (v.items) {
+                v.items.forEach((item, idx) => {
+                    datos.push({'Fecha': idx===0?v.fecha:'','Cliente': idx===0?v.cliente:'','Producto':item.nombre,'Cantidad':item.cantidad,'Precio':item.precioVenta,'Subtotal':item.subtotal,'Ganancia':item.ganancia});
+                });
+            } else {
+                datos.push({'Fecha':v.fecha,'Cliente':v.cliente,'Producto':v.nombre||'-','Cantidad':v.cantidad||0,'Precio':'','Subtotal':v.total,'Ganancia':v.ganancia});
             }
-            resumen[v.cliente].compras += 1;
-            resumen[v.cliente].unidades += v.cantidad;
-            resumen[v.cliente].total += v.total;
         });
-
-        const datosClientes = Object.keys(resumen).map(cliente => ({
-            'Cliente': cliente,
-            'Número de Compras': resumen[cliente].compras,
-            'Productos Comprados': resumen[cliente].unidades,
-            'Total Gastado': resumen[cliente].total
-        }));
-
-        datosClientes.sort((a, b) => b['Total Gastado'] - a['Total Gastado']);
-
-        datosClientes.push({
-            'Cliente': 'TOTAL',
-            'Número de Compras': datosClientes.reduce((sum, c) => sum + c['Número de Compras'], 0),
-            'Productos Comprados': datosClientes.reduce((sum, c) => sum + c['Productos Comprados'], 0),
-            'Total Gastado': datosClientes.reduce((sum, c) => sum + c['Total Gastado'], 0)
-        });
-
-        const wsClientes = XLSX.utils.json_to_sheet(datosClientes);
-        wsClientes['!cols'] = [{wch: 25}, {wch: 18}, {wch: 20}, {wch: 15}];
-        XLSX.utils.book_append_sheet(wb, wsClientes, "Clientes");
+        const ws = XLSX.utils.json_to_sheet(datos);
+        XLSX.utils.book_append_sheet(wb, ws, "Ventas");
     }
 
-    // HOJA 4: RESUMEN GENERAL
-    const resumenGeneral = [
-        {Concepto: 'INVENTARIO', Valor: ''},
-        {Concepto: 'Total de Productos', Valor: stock.length},
-        {Concepto: 'Unidades en Stock', Valor: stock.reduce((sum, p) => sum + p.cantidad, 0)},
-        {Concepto: 'Valor del Inventario', Valor: stock.reduce((sum, p) => sum + (p.cantidad * p.costo), 0)},
-        {Concepto: '', Valor: ''},
-        {Concepto: 'VENTAS', Valor: ''},
-        {Concepto: 'Total de Ventas', Valor: ventas.length},
-        {Concepto: 'Productos Vendidos', Valor: ventas.reduce((sum, v) => sum + v.cantidad, 0)},
-        {Concepto: 'Ingresos Totales', Valor: ventas.reduce((sum, v) => sum + v.total, 0)},
-        {Concepto: 'Ganancias Totales', Valor: ventas.reduce((sum, v) => sum + v.ganancia, 0)},
-        {Concepto: '', Valor: ''},
-        {Concepto: 'CLIENTES', Valor: ''},
-        {Concepto: 'Clientes Únicos', Valor: new Set(ventas.map(v => v.cliente)).size},
-        {Concepto: '', Valor: ''},
-        {Concepto: 'Fecha de Respaldo', Valor: fecha}
-    ];
+    // Resumen mensual año actual
+    let añoActual = new Date().getFullYear();
+    let datosMeses = Array(12).fill(null).map((_,i) => ({Mes: MESES_NOMBRES[i], Ventas: 0, Ganancias: 0, Transacciones: 0}));
+    ventas.forEach(v => {
+        let ts = v.timestamp;
+        if (!ts && v.fecha) { let p=v.fecha.split('/'); if(p.length===3) ts=new Date(p[2],p[1]-1,p[0]).getTime(); }
+        if (!ts) return;
+        let d = new Date(ts);
+        if (d.getFullYear() !== añoActual) return;
+        let m = d.getMonth();
+        datosMeses[m].Ventas += v.total;
+        datosMeses[m].Ganancias += v.ganancia;
+        datosMeses[m].Transacciones++;
+    });
+    const wsMeses = XLSX.utils.json_to_sheet(datosMeses);
+    XLSX.utils.book_append_sheet(wb, wsMeses, `Meses ${añoActual}`);
 
-    const wsResumen = XLSX.utils.json_to_sheet(resumenGeneral);
-    wsResumen['!cols'] = [{wch: 25}, {wch: 20}];
-    XLSX.utils.book_append_sheet(wb, wsResumen, "Resumen");
-
-    // Descargar
     XLSX.writeFile(wb, `Respaldo_Completo_${fecha}.xlsx`);
-    
-    alert("✅ Respaldo completo exportado exitosamente\n\n📊 Archivo incluye:\n- Inventario\n- Ventas\n- Clientes\n- Resumen General");
+    alert("✅ Respaldo completo exportado");
 }
 
-/* ================= INICIO ================= */
+function fechaHoy() {
+    return new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
+}
 
+/* ===== EDITAR VENTA ===== */
+let lineasEdicion = [];
+let editVentaIdxActual = -1;
+
+function abrirEditarVenta(i) {
+    editVentaIdxActual = i;
+    let v = ventas[i];
+    document.getElementById('editVentaIdx').value = i;
+    document.getElementById('editVentaCliente').value = v.cliente;
+
+    // Cargar items (soporte estructura nueva y vieja)
+    if (v.items && v.items.length > 0) {
+        lineasEdicion = v.items.map(it => ({
+            productoNombre: it.nombre,
+            cantidad: it.cantidad,
+            precio: it.precioVenta
+        }));
+    } else {
+        lineasEdicion = [{
+            productoNombre: v.nombre || '',
+            cantidad: v.cantidad || 1,
+            precio: v.total ? (v.total / (v.cantidad || 1)) : 0
+        }];
+    }
+
+    renderizarLineasEdicion();
+    abrirModal('modalEditarVenta');
+}
+
+function agregarLineaEdicion() {
+    lineasEdicion.push({ productoNombre: '', cantidad: 1, precio: '' });
+    renderizarLineasEdicion();
+}
+
+function eliminarLineaEdicion(idx) {
+    if (lineasEdicion.length === 1) {
+        alert("⚠️ Debe haber al menos un producto en la venta");
+        return;
+    }
+    lineasEdicion.splice(idx, 1);
+    renderizarLineasEdicion();
+}
+
+function actualizarLineaEdicion(idx, campo, valor) {
+    if (campo === 'producto') lineasEdicion[idx].productoNombre = valor;
+    else if (campo === 'cantidad') lineasEdicion[idx].cantidad = parseInt(valor) || 1;
+    else if (campo === 'precio') lineasEdicion[idx].precio = parseFloat(valor) || '';
+    renderizarLineasEdicion();
+}
+
+function renderizarLineasEdicion() {
+    const contenedor = document.getElementById('editLineasVenta');
+    // Todos los productos del stock (al editar, incluimos también los agotados porque originalmente venían de ahí)
+    const todosProductos = stock;
+
+    if (todosProductos.length === 0) {
+        contenedor.innerHTML = `<div style="background:#fff3cd;padding:15px;border-radius:8px;color:#856404;">⚠️ No hay productos en el stock</div>`;
+        actualizarTotalesEdicion();
+        return;
+    }
+
+    contenedor.innerHTML = lineasEdicion.map((linea, idx) => {
+        let optionsHTML = todosProductos.map(p =>
+            `<option value="${p.nombre}" ${p.nombre === linea.productoNombre ? 'selected' : ''}>${p.nombre} (Stock: ${p.cantidad})</option>`
+        ).join('');
+
+        let subtotalBar = '';
+        if (linea.productoNombre && linea.cantidad && linea.precio) {
+            const prod = stock.find(p => p.nombre === linea.productoNombre);
+            const subtotal = linea.cantidad * linea.precio;
+            const ganancia = prod ? (linea.precio - prod.costo) * linea.cantidad : 0;
+            subtotalBar = `
+            <div class="producto-subtotal-bar">
+                <div class="subtotal-item">
+                    <span class="s-label">Subtotal</span>
+                    <span class="s-value ventas-color">$${subtotal.toFixed(2)}</span>
+                </div>
+                <div class="subtotal-item">
+                    <span class="s-label">Ganancia</span>
+                    <span class="s-value ganancia-color">$${ganancia.toFixed(2)}</span>
+                </div>
+                ${prod ? `<div class="subtotal-item">
+                    <span class="s-label">Costo unitario</span>
+                    <span class="s-value" style="color:#aaa;">$${parseFloat(prod.costo).toFixed(2)}</span>
+                </div>` : ''}
+            </div>`;
+        }
+
+        return `
+        <div class="producto-venta-item">
+            <div class="producto-item-header">
+                <span class="producto-item-numero">Producto ${idx + 1}</span>
+                <button class="remove-item" onclick="eliminarLineaEdicion(${idx})" title="Eliminar">✕</button>
+            </div>
+            <div class="producto-row">
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Producto</label>
+                    <select onchange="actualizarLineaEdicion(${idx},'producto',this.value)">
+                        <option value="">-- Seleccionar --</option>
+                        ${optionsHTML}
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Cantidad</label>
+                    <input type="number" min="1" value="${linea.cantidad}" style="text-transform:none"
+                        onchange="actualizarLineaEdicion(${idx},'cantidad',this.value)">
+                </div>
+                <div class="form-group" style="margin-bottom:0">
+                    <label>Precio Venta ($)</label>
+                    <input type="number" step="0.01" min="0" value="${linea.precio}" style="text-transform:none"
+                        placeholder="0.00"
+                        onchange="actualizarLineaEdicion(${idx},'precio',this.value)">
+                </div>
+            </div>
+            ${subtotalBar}
+        </div>`;
+    }).join('');
+
+    actualizarTotalesEdicion();
+}
+
+function actualizarTotalesEdicion() {
+    let total = 0, ganancia = 0;
+    lineasEdicion.forEach(l => {
+        if (l.productoNombre && l.cantidad && l.precio) {
+            const prod = stock.find(p => p.nombre === l.productoNombre);
+            total += l.cantidad * l.precio;
+            if (prod) ganancia += (l.precio - prod.costo) * l.cantidad;
+        }
+    });
+    document.getElementById('editTotalVenta').textContent = '$' + total.toFixed(2);
+    document.getElementById('editTotalGanancia').textContent = '$' + ganancia.toFixed(2);
+}
+
+function guardarEdicionVenta() {
+    let i = editVentaIdxActual;
+    let cli = document.getElementById('editVentaCliente').value.trim().toUpperCase();
+
+    if (!cli) { alert("⚠️ Ingresa el nombre del cliente"); return; }
+
+    for (let j = 0; j < lineasEdicion.length; j++) {
+        let l = lineasEdicion[j];
+        if (!l.productoNombre) { alert(`⚠️ Selecciona un producto en la línea ${j+1}`); return; }
+        if (!l.cantidad || l.cantidad <= 0) { alert(`⚠️ Cantidad inválida en línea ${j+1}`); return; }
+        if (!l.precio || l.precio <= 0) { alert(`⚠️ Precio inválido en línea ${j+1}`); return; }
+    }
+
+    let nombresNuevos = lineasEdicion.map(l => l.productoNombre);
+    if (nombresNuevos.some((n, j) => nombresNuevos.indexOf(n) !== j && n !== '')) {
+        alert("⚠️ Hay productos repetidos. Por favor combínalos en una sola línea."); return;
+    }
+
+    let ventaAnterior = ventas[i];
+
+    // 1. Devolver stock de la venta anterior
+    if (ventaAnterior.items) {
+        ventaAnterior.items.forEach(item => {
+            let prod = stock.find(p => p.nombre === item.nombre);
+            if (prod) prod.cantidad += item.cantidad;
+        });
+    } else if (ventaAnterior.nombre) {
+        let prod = stock.find(p => p.nombre === ventaAnterior.nombre);
+        if (prod) prod.cantidad += (ventaAnterior.cantidad || 0);
+    }
+
+    // 2. Validar stock disponible para los nuevos items
+    for (let j = 0; j < lineasEdicion.length; j++) {
+        let l = lineasEdicion[j];
+        let prod = stock.find(p => p.nombre === l.productoNombre);
+        if (!prod) { alert(`⚠️ Producto "${l.productoNombre}" no encontrado`); return; }
+        if (prod.cantidad < l.cantidad) {
+            // Revertir devolución antes de salir
+            if (ventaAnterior.items) {
+                ventaAnterior.items.forEach(item => {
+                    let p2 = stock.find(p => p.nombre === item.nombre);
+                    if (p2) p2.cantidad -= item.cantidad;
+                });
+            }
+            alert(`⚠️ Stock insuficiente de ${l.productoNombre}. Disponible: ${prod.cantidad}`);
+            return;
+        }
+    }
+
+    // 3. Descontar stock nuevo y recalcular
+    let totalVenta = 0, gananciaTotal = 0, itemsVenta = [];
+    lineasEdicion.forEach(l => {
+        let prod = stock.find(p => p.nombre === l.productoNombre);
+        prod.cantidad -= l.cantidad;
+        let subtotal = l.precio * l.cantidad;
+        let ganancia = (l.precio - prod.costo) * l.cantidad;
+        totalVenta += subtotal;
+        gananciaTotal += ganancia;
+        itemsVenta.push({
+            nombre: l.productoNombre,
+            cantidad: l.cantidad,
+            precioVenta: l.precio,
+            costo: prod.costo,
+            subtotal,
+            ganancia
+        });
+    });
+
+    // 4. Guardar venta editada (conservar fecha y timestamp originales)
+    ventas[i] = {
+        cliente: cli,
+        items: itemsVenta,
+        total: totalVenta,
+        ganancia: gananciaTotal,
+        fecha: ventaAnterior.fecha,
+        timestamp: ventaAnterior.timestamp
+    };
+
+    guardar();
+    cerrarModal('modalEditarVenta');
+    alert(`✅ Venta actualizada\n💵 Total: $${totalVenta.toFixed(2)}\n📈 Ganancia: $${gananciaTotal.toFixed(2)}`);
+}
+
+/* ===== INICIO ===== */
 cargarDatos();
+iniciarFormVenta();
 </script>
-
 </body>
 </html>
